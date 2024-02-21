@@ -76,6 +76,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/blogRecyclerView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="20dp"
@@ -84,4 +85,17 @@
         app:layout_constraintStart_toStartOf="@+id/search_blog"
         app:layout_constraintTop_toBottomOf="@+id/search_blog"
         tools:listitem="@layout/blog_item" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingAddArticleButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="28dp"
+        android:clickable="true"
+        app:backgroundTint="@color/blue"
+        app:tint = "#ffff"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/add_white" />
 </androidx.constraintlayout.widget.ConstraintLayout>
