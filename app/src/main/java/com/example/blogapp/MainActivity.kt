@@ -29,8 +29,21 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
+        // to go save article page
+        binding.saveArticalButton.setOnClickListener{
+            startActivity(Intent(this,SavedArticlesActivity::class.java))
+        }
+        //to go profile activity
+        binding.profileImage.setOnClickListener{
+            startActivity(Intent(this,ProfileActivity::class.java))
+        }
+        //to go profile activity
+        binding.cardView.setOnClickListener{
+            startActivity(Intent(this,ProfileActivity::class.java))
+        }
+
         auth = FirebaseAuth.getInstance()
-        databaseReference = FirebaseDatabase.getInstance("https://blog-app-40d04-default-rtdb.asia-southeast1.firebasedatabase.app").reference.child("blog")
+        databaseReference = FirebaseDatabase.getInstance("https://blog-app-40d04-default-rtdb.asia-southeast1.firebasedatabase.app").reference.child("blogs")
         val userId = auth.currentUser?.uid
         // set user profile
         if(userId != null){
@@ -38,7 +51,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         //set blog post into recyclerview
-
         //Initialize the recycler view and set adapter
         val recyclerView = binding.blogRecyclerView
         val blogAdapter = BlogAdapter(blogItems)

@@ -4,22 +4,28 @@ import android.os.Parcel
 import android.os.Parcelable
 
 data class BlogItemModel(
-    val heading: String? = "null",
+    var heading: String? = "null",
     val userName: String? = "null",
     val date: String? = "null",
-    val post: String? = "null",
-    val likeCount: Int = 0,
+    var post: String? = "null",
+    val userId: String? = "null",
+    var likeCount: Int = 0,
     val profileUrl: String? = "null",
-    val postId:String = "null"
+    var isSaved:Boolean = false,
+    var postId:String = "null",
+    val likedBy:MutableList<String>? = null
     ):Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readString()?:"null",
         parcel.readString()?:"null",
         parcel.readString()?:"null",
         parcel.readString()?:"null",
+        parcel.readString()?:"null",
         parcel.readInt(),
         parcel.readString()?:"null",
-        parcel.readString()?:"null"
+        parcel.readByte() != 0.toByte(),
+        parcel.readString()?:"null" ,
+
     ) {
     }
 
@@ -28,8 +34,10 @@ data class BlogItemModel(
         parcel.writeString(userName)
         parcel.writeString(date)
         parcel.writeString(post)
+        parcel.writeString(userId)
         parcel.writeInt(likeCount)
         parcel.writeString(profileUrl)
+        parcel.writeByte(if(isSaved) 1 else 0)
         parcel.writeString(postId)
     }
 

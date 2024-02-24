@@ -10,7 +10,10 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp">
 
         <TextView
             android:id="@+id/heading"
@@ -102,49 +105,45 @@
 
         <Button
             android:id="@+id/readmorebutton"
-            android:layout_width="180dp"
-            android:layout_height="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:backgroundTint="@color/blue"
             android:text="Read More"
             app:cornerRadius="9dp"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@id/post"
+            app:layout_constraintEnd_toStartOf="@+id/editButton"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/post" />
 
-        <TextView
-            android:id="@+id/likeCount"
+        <Button
+            android:id="@+id/deleteButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
-            android:fontFamily="@font/montserrat_semibold"
-            android:text="20"
-            android:textColor="@color/black"
-            android:textSize="16sp"
+            android:backgroundTint="@color/red"
+            android:text="DELETE"
+            app:cornerRadius="9dp"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="@+id/editButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/editButton"
+            app:layout_constraintTop_toTopOf="@+id/editButton" />
+
+        <Button
+            android:id="@+id/editButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/black"
+            android:text="EDIT"
+            app:cornerRadius="9dp"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="@+id/readmorebutton"
+            app:layout_constraintEnd_toStartOf="@+id/deleteButton"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/readmorebutton"
             app:layout_constraintTop_toTopOf="@+id/readmorebutton" />
-
-        <ImageButton
-            android:id="@+id/likeButton"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginStart="8dp"
-            android:background="@android:color/transparent"
-            app:layout_constraintBottom_toBottomOf="@+id/likeCount"
-            app:layout_constraintStart_toEndOf="@+id/likeCount"
-            app:layout_constraintTop_toTopOf="@+id/likeCount"
-            app:srcCompat="@drawable/heart_black" />
-
-        <ImageButton
-            android:id="@+id/postSaveButton"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginStart="16dp"
-            android:background="@android:color/transparent"
-            app:layout_constraintBottom_toBottomOf="@+id/likeButton"
-            app:layout_constraintStart_toEndOf="@+id/likeButton"
-            app:layout_constraintTop_toTopOf="@+id/likeButton"
-            app:srcCompat="@drawable/unsave_articles" />
 
         <androidx.constraintlayout.widget.Barrier
             android:id="@+id/barrier2"

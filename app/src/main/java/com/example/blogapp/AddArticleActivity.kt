@@ -17,7 +17,7 @@ class AddArticleActivity : AppCompatActivity() {
         ActivityAddArticleBinding.inflate(layoutInflater)
     }
 
-    private val databaseReference:DatabaseReference = FirebaseDatabase.getInstance("https://blog-app-40d04-default-rtdb.asia-southeast1.firebasedatabase.app").getReference("blog")
+    private val databaseReference:DatabaseReference = FirebaseDatabase.getInstance("https://blog-app-40d04-default-rtdb.asia-southeast1.firebasedatabase.app").getReference("blogs")
     private val userReference:DatabaseReference = FirebaseDatabase.getInstance("https://blog-app-40d04-default-rtdb.asia-southeast1.firebasedatabase.app").getReference("users")
     private val auth = FirebaseAuth.getInstance()
 
@@ -58,6 +58,7 @@ class AddArticleActivity : AppCompatActivity() {
                                 userNameFromDB,
                                 currentDate,
                                 description,
+                                userId,
                                 0,
                                 userImageUrlFromDB
                             )
@@ -65,6 +66,7 @@ class AddArticleActivity : AppCompatActivity() {
                             val key = databaseReference.push().key
                             if(key != null){
 
+                                blogItem.postId = key
                                 val blogReference = databaseReference.child(key)
                                 blogReference.setValue(blogItem).addOnCompleteListener{
                                     if(it.isSuccessful){
