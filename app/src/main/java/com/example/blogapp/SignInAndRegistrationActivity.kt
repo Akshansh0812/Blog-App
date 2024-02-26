@@ -63,7 +63,7 @@ class SignInAndRegistrationActivity : AppCompatActivity() {
                                 startActivity(Intent(this, MainActivity::class.java))
                                 finish()
                             } else {
-                                Toast.makeText(this, "Login Field. Please Enter Correct Details", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(this, "Login Failed.Please Enter Correct Details", Toast.LENGTH_SHORT).show()
                             }
                         }
                 }
@@ -111,19 +111,19 @@ class SignInAndRegistrationActivity : AppCompatActivity() {
                                             if(task.isSuccessful){
                                                 storageReference.downloadUrl.addOnCompleteListener{imageUri->
                                                     val imageUrl = imageUri.result.toString()
-                                                    //save the iamge uri to the realtime database
+                                                    //save the image uri to the realtime database
                                                     userReference.child(userId).child("profileImage").setValue(imageUrl)
                                             }
                                         }
 
                                     }
-                                    Toast.makeText(this, "successfully",Toast.LENGTH_SHORT ).show()
+                                    Toast.makeText(this, "Successful",Toast.LENGTH_SHORT ).show()
                                     startActivity(Intent(this, WelcomeActivity::class.java))
                                     finish()
                                 }
                             }
                             else{
-                                Toast.makeText(this, "failed",Toast.LENGTH_SHORT ).show()
+                                Toast.makeText(this, "Failed",Toast.LENGTH_SHORT ).show()
                             }
                         }
                 }

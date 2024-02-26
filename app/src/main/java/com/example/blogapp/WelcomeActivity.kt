@@ -31,6 +31,8 @@ class WelcomeActivity : AppCompatActivity() {
             finish()
         }
     }
+
+    //GO TO MAIN ACTIVITY IF USER IS ALREADY LOGGED IN
     override fun onStart() {
         super.onStart()
         val currentUser = auth.currentUser
